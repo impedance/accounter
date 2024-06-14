@@ -1,0 +1,17 @@
+
+<h1>Budget</h1>
+
+<p>name: <%= @budget.name %></p>
+<p>allocated_sum: <%= @budget.allocated_sum %></p>
+
+<div>
+<%= link_to 'Edit budget', edit_budget_path(@budget) %>
+  
+</div>
+<br/>
+<div>
+  <%= button_to 'delete budget', budget_path(@budget), method: :delete %>
+</div>
+<hr/>
+
+<p><%= link_to 'go to budgets', budgets_path %></p>

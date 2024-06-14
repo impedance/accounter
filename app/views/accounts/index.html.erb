@@ -1,0 +1,12 @@
+<h1>Accounts</h1>
+
+<%= link_to 'Create account', new_account_path %>
+<hr/>
+
+<% @accounts.each do |account| %>
+  <p>Name: <%= link_to account.name, account_path(account) %></p>
+  <p>Balance: <%= account.balance %></p>
+  <hr/>
+  <% end %>
+  <br/>
+<%= link_to 'go to budgets', budgets_path %>

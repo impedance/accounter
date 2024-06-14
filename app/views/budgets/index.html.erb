@@ -1,0 +1,28 @@
+
+<h1>Budgets</h1>
+
+<%= link_to 'Create budget', new_budget_path %>
+<hr/>
+
+<% @budgets.each do |budget| %>
+  <p>Name: <%= link_to budget.name, budget_path(budget) %></p>
+  <p>Allocated sum: <%= budget.allocated_sum %></p>
+  <%= form_with model: budget do |form|%>
+    <div>
+      <%= form.label :sum_to_allocate, 'sum to allocate' %>
+      <%=  form.text_field :sum_to_allocate %>
+      <%= form.submit 'allocate' %>
+    </div>
+  <% end %>
+  <br/>
+  <%= form_with model: budget do |form|%>
+    <div>
+      <%= form.label :sum_to_spend, 'sum to spend' %>
+      <%=  form.text_field :sum_to_spend %>
+      <%= form.submit 'spend' %>
+    </div>
+  <% end %>
+  <hr/>
+  <% end %>
+  <br/>
+<%= link_to 'go to accounts', accounts_path %>

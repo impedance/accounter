@@ -1,0 +1,19 @@
+<h2>New Account</h2>
+
+<%= form_with model: @account do |form| %>
+  <p>
+  <%= form.label :name, 'Name' %>
+  </p>
+  <p>
+  <%= form.text_field :name %>
+  </p>
+  <p>
+  <%= form.label :balance, 'Balance' %>
+  </p>
+  <p>
+  <%= form.text_field :balance %>
+  </p>
+  <p>
+  <%= form.submit 'Create' %>
+  </p>
+<% end %>

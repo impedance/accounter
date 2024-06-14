@@ -1,0 +1,21 @@
+# .rubocop.yml
+
+# По умолчанию все правила включены, кроме тех, что помечены как 'safe'
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'config/**/*'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
+    - 'Gemfile'
+
+# Правила для Rails-приложений
+# Rails:
+#   Enabled: true
+require: rubocop-rails
+
+# Отключаем предупреждение Layout/LineLength для всех файлов
+Layout/LineLength:
+  Enabled: false
+
