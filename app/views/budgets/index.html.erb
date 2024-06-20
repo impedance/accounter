@@ -2,6 +2,7 @@
 <h1>Budgets</h1>
 
 <%= link_to 'Create budget', new_budget_path %>
+<%= render 'accounts', accounts: @accounts %>
 <hr/>
 
 <% @budgets.each do |budget| %>
@@ -19,6 +20,8 @@
     <div>
       <%= form.label :sum_to_spend, 'sum to spend' %>
       <%=  form.text_field :sum_to_spend %>
+      <%= form.select(:account_id, options_for_select(@account_options, selected: @default_account_id)) %>
+
       <%= form.submit 'spend' %>
     </div>
   <% end %>

@@ -1,0 +1,13 @@
+
+
+<div class="accounts">
+  <% accounts.each do |account| %>
+    <div class="accounts_item">
+      
+      <p>Name: <%= link_to account.name, account_path(account) %></p>
+      <p>Balance: <%= account.balance %></p>
+      <hr/>
+      <br/>
+    </div>
+    <% end %>
+</div>

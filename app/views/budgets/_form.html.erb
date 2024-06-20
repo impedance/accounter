@@ -1,0 +1,12 @@
+
+<%= form_with model: @budget do |form| %>
+  <p>
+  <%= form.label :name, 'Name' %>
+  </p>
+  <p>
+  <%= form.text_field :name %>
+  </p>
+  <p>
+  <%= form.submit 'Save' %>
+  </p>
+<% end %>

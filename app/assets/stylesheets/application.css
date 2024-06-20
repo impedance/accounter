@@ -13,3 +13,18 @@
  *= require_tree .
  *= require_self
  */
+
+.accounts {
+  display: flex;
+  flex-direction: row;
+}
+
+.accounts_item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  border: 1px, solid;
+  border-radius: 8px;
+  border-color: green;
+  margin: 5px;
+}
