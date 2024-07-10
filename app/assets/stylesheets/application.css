@@ -14,6 +14,73 @@
  *= require_self
  */
 
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+body {
+  background: linear-gradient(
+    to right,
+    #122f39 10%,
+    #2f565a 60%,
+    #122f39 90%
+  );
+}
+
+
+.budgets_list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.budgets_item-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.budgets_item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 5px;
+  padding: 5px;
+  justify-content: center;
+  color: #ffc73c;
+}
+
+.budgets_item-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 3px solid #ffc73c;
+  padding: 5px;
+  border-radius: 10%;
+  background-color: #495f4c;
+  justify-content: center;
+}
+
+.budgets_item-button {
+  border-radius: 5px;
+  border: 1px solid green;
+  padding: 5px;
+  margin: 5px;
+  text-decoration: none;
+  color: white;
+}
+
+.assign_form {
+  display: flex;
+  flex-direction: column;
+}
+
+.assign_form-buttons {
+  margin: 5px;
+  display: flex;
+  justify-content:space-between;
+}
+
 .accounts {
   display: flex;
   flex-direction: row;

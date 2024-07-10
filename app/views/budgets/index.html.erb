@@ -1,31 +1,28 @@
 
 <h1>Budgets</h1>
 
-<%= link_to 'Create budget', new_budget_path %>
 <%= render 'accounts', accounts: @accounts %>
-<hr/>
 
-<% @budgets.each do |budget| %>
-  <p>Name: <%= link_to budget.name, budget_path(budget) %></p>
-  <p>Allocated sum: <%= budget.allocated_sum %></p>
-  <%= form_with model: budget do |form|%>
-    <div>
-      <%= form.label :sum_to_allocate, 'sum to allocate' %>
-      <%=  form.text_field :sum_to_allocate %>
-      <%= form.submit 'allocate' %>
+<div class="budgets_list">
+  <% @budgets.each do |budget| %>
+    <div class="budgets_item">
+      <p class="budgets_item-title">
+        <%= link_to budget.name, budget_path(budget) %>
+      </p>
+      <div class="budgets_item-body">
+        <a href="<%= budget_path(budget)%>/assign" class="budgets_item-button">
+          assign
+        </a>
+        <a href="<%= budget_path(budget)%>/spend" class="budgets_item-button">
+          spend
+        </a>
+      </div>
+      <p class="budgets_item-sum">
+        <%= budget.allocated_sum || 0 %>
+      </p>
     </div>
   <% end %>
-  <br/>
-  <%= form_with model: budget do |form|%>
-    <div>
-      <%= form.label :sum_to_spend, 'sum to spend' %>
-      <%=  form.text_field :sum_to_spend %>
-      <%= form.select(:account_id, options_for_select(@account_options, selected: @default_account_id)) %>
-
-      <%= form.submit 'spend' %>
-    </div>
-  <% end %>
-  <hr/>
-  <% end %>
-  <br/>
-<%= link_to 'go to accounts', accounts_path %>
+  <div class="budgets_item">
+    <%= link_to 'Create budget', new_budget_path %>
+  </div>
+</div>

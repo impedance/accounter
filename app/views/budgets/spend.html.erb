@@ -1,0 +1,14 @@
+<h2>Spend money</h2>
+<p>on</p>
+<p><b><%= @budget.name %></b></p>
+
+<div class="assign_form">
+  <%= form_with model: @budget, class: "assign_form" do |form|%>
+    <%= form.select(:account_id, options_for_select(@account_options, selected: @default_account_id), {}, class: "form-field") %>
+    <%= form.number_field :sum, class: "form-field" %>
+    <div class="assign_form-buttons">
+      <%= link_to 'cancel', budgets_path %>
+      <%= form.submit 'spend' %>
+    </div>
+  <% end %>
+</div>

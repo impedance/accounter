@@ -1,5 +1,5 @@
 class BudgetsController < ApplicationController
-  before_action :set_budget, only: %i[show update destroy edit]
+  before_action :set_budget, only: %i[show update destroy edit assign spend]
 
   def create
     budget = Budget.create(budget_params)
@@ -8,17 +8,18 @@ class BudgetsController < ApplicationController
   end
 
   def update
-    if budget_params.include?(:sum_to_allocate)
-      sum = budget_params[:sum_to_allocate].to_i
+    sum = budget_params[:sum].to_i
+
+    if params[:commit] == 'assign'
       @budget.update(allocated_sum: @budget.allocated_sum + sum)
-    elsif budget_params.include?(:sum_to_spend)
-      sum_to_spend = budget_params[:sum_to_spend].to_i
+    elsif params[:commit] == 'spend'
       account = Account.find_by(id: budget_params[:account_id])
-      account.update(balance: account.balance - sum_to_spend)
-      @budget.update(allocated_sum: @budget.allocated_sum - sum_to_spend)
+      account.update(balance: account.balance - sum)
+      @budget.update(allocated_sum: @budget.allocated_sum - sum)
     else
       @budget.update(budget_params)
     end
+
     redirect_to budgets_path
   end
 
@@ -44,14 +45,20 @@ class BudgetsController < ApplicationController
   def edit
   end
 
+  def spend
+    @account_options = Account.all.map { |account| [account.name, account.id]}
+    @default_account_id = Account.find_by(name: :tnkf).id
+  end
+
+  def assign; end
+
   private
 
   def budget_params
     params.require(:budget).permit(
       :name,
-      :sum_to_allocate,
-      :sum_to_spend,
-      :account_id
+      :account_id,
+      :sum
     )
   end
 
