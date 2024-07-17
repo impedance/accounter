@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2024_06_07_103004) do
+ActiveRecord::Schema[7.0].define(version: 2024_07_17_075521) do
   create_table "accounts", force: :cascade do |t|
     t.string "name"
     t.decimal "balance"
@@ -21,7 +21,7 @@ ActiveRecord::Schema[7.0].define(version: 2024_06_07_103004) do
 
   create_table "budgets", force: :cascade do |t|
     t.string "name"
-    t.decimal "allocated_sum"
+    t.decimal "allocated_sum", precision: 5, scale: 2, default: "0.0"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

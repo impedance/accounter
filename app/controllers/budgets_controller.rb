@@ -32,10 +32,13 @@ class BudgetsController < ApplicationController
   end
 
   def index
+    @budgets = Budget.all
     @account_options = Account.all.map { |account| [account.name, account.id]}
     @default_account_id = Account.find_by(name: :tnkf).id
-    @accounts = Account.all
-    @budgets = Budget.all
+
+    accounts_sum = Account.all.map(&:balance).sum.to_f
+    budgets_allocated_sum = Budget.all.map(&:allocated_sum).sum.to_f
+    @available_amount = accounts_sum - budgets_allocated_sum
   end
 
   def new

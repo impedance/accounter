@@ -6,9 +6,9 @@ class AccountsController < ApplicationController
   end
 
   def update
-    account.update(account_params)
+    @account.update(account_params)
 
-    redirect_to account_path(account)
+    redirect_to account_path(@account)
   end
 
   def destroy

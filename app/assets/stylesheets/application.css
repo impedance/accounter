@@ -29,12 +29,27 @@ body {
   );
 }
 
+.assigning-info {
+  border-radius: 20%;
+  margin: 10px;
+  padding: 10px;
+  background: linear-gradient(
+    to right,
+    #6c9e36,
+    #699f36
+  );
+}
+
 
 .budgets_list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
+.budgets_item-title {
+  margin-bottom: 10px;
+}
+
 .budgets_item-title a {
   color: white;
   text-decoration: none;
@@ -59,6 +74,9 @@ body {
   border-radius: 10%;
   background-color: #495f4c;
   justify-content: center;
+  text-decoration: none;
+  color: #ffc73c;
+  margin-bottom: 5px;
 }
 
 .budgets_item-button {
@@ -68,6 +86,11 @@ body {
   margin: 5px;
   text-decoration: none;
   color: white;
+}
+
+.budgets_item-create {
+  text-decoration: none;
+  color: #ffc73c;
 }
 
 .assign_form {
