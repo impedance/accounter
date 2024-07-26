@@ -48,9 +48,6 @@ body {
 }
 .budgets_item-title {
   margin-bottom: 10px;
-}
-
-.budgets_item-title a {
   color: white;
   text-decoration: none;
 }
@@ -60,15 +57,21 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 5px;
-  padding: 5px;
   justify-content: center;
+}
+
+.budgets_item-sum {
   color: #ffc73c;
+}
+
+.budgets_item-needed_sum {
+  color: #6e7c82;
+  font-size: 14px;
 }
 
 .budgets_item-body {
   display: flex;
   flex-direction: column;
-  align-items: center;
   border: 3px solid #ffc73c;
   padding: 5px;
   border-radius: 10%;

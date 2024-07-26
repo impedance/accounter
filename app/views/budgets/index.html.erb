@@ -1,6 +1,4 @@
 
-<h1>Budgets</h1>
-
 <div class="assigning-info">
   <b>Ready to assign:</b><%= @available_amount %>
 </div>
@@ -8,9 +6,7 @@
 <div class="budgets_list">
   <% @budgets.each do |budget| %>
     <div class="budgets_item">
-      <div class="budgets_item-title">
-        <%= link_to budget.name, budget_path(budget) %>
-      </div>
+        <%= link_to budget.name, budget_path(budget), class: "budgets_item-title" %>
       <div class="budgets_item-body">
         <a href="<%= budget_path(budget)%>/assign" class="budgets_item-button">
           assign
@@ -20,6 +16,9 @@
         </a>
       </div>
       <div class="budgets_item-sum">
+        <%= budget.allocated_sum || 0 %>
+      </div>
+      <div class="budgets_item-needed_sum">
         <%= budget.allocated_sum || 0 %>
       </div>
     </div>
