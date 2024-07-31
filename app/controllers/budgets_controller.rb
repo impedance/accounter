@@ -14,8 +14,15 @@ class BudgetsController < ApplicationController
       @budget.update(allocated_sum: @budget.allocated_sum + sum)
     elsif params[:commit] == 'spend'
       account = Account.find_by(id: budget_params[:account_id])
+      transaction = Transaction.new(
+        account: account,
+        budget: @budget,
+        transaction_date: Date.today,
+        amount: sum
+      )
       account.update(balance: account.balance - sum)
       @budget.update(allocated_sum: @budget.allocated_sum - sum)
+      transaction.save
     else
       @budget.update(budget_params)
     end
@@ -51,6 +58,7 @@ class BudgetsController < ApplicationController
   def spend
     @account_options = Account.all.map { |account| [account.name, account.id]}
     @default_account_id = Account.find_by(name: :tnkf).id
+    @expenses = Transaction.all.map
   end
 
   def assign; end

@@ -1,17 +1,37 @@
 
-<div class="operation_form">
-  <h3 class="operation_form-title">
-    Assign to 
-    <b class="operation_form-budget_name">
-      <%= @budget.name %>
-    </b>
-  </h3>
-  <%= form_with model: @budget do |form|%>
-    <%=  form.number_field :sum, class: "operation_form-field" %>
-    <p>(available to spend:<%= @budget.allocated_sum %>)</p>
-    <div class="operation_form-actions">
-      <%= link_to 'cancel', budgets_path, class: 'operation_form-button' %>
-      <%= form.submit 'assign', class: 'operation_form-button' %>
-    </div>
-  <% end %>
+<div class="form_container">
+  <div class="operation_form">
+    <h3 class="operation_form-title">
+      Assign to 
+      <b class="operation_form-budget_name">
+        <%= @budget.name %>
+      </b>
+    </h3>
+    <%= form_with model: @budget do |form|%>
+      <%=  form.number_field :sum, class: "operation_form-field" %>
+      <p>(available to spend:<%= @budget.allocated_sum %>)</p>
+      <div class="operation_form-actions">
+        <%= link_to 'cancel', budgets_path, class: 'operation_form-button' %>
+        <%= form.submit 'assign', class: 'operation_form-button' %>
+      </div>
+    <% end %>
+  </div>
+
+  <ul class="allocations">
+    
+    <li class="allocations_item">
+      <div class="allocations_item-date">20/03/1986</div>
+      <div class="allocations_item-body">
+        <span class="allocations_item-account">sbrf</span>
+        <span class="allocations_item-sum">10000</span>
+      </div>
+    </li>
+    <li class="allocations_item">
+      <div class="allocations_item-date">20/03/1986</div>
+      <div class="allocations_item-body">
+        <span class="allocations_item-account">sbrf</span>
+        <span class="allocations_item-sum">10000</span>
+      </div>
+    </li>
+  </ul>
 </div>

@@ -20,20 +20,14 @@
   </div>
 
   <ul class="expenses">
-    
-    <li class="expenses_item">
-      <div class="expenses_item-date">20/03/1986</div>
-      <div class="expenses_item-body">
-        <span class="expenses_item-account">sbrf</span>
-        <span class="expenses_item-sum">10000</span>
-      </div>
-    </li>
-    <li class="expenses_item">
-      <div class="expenses_item-date">20/03/1986</div>
-      <div class="expenses_item-body">
-        <span class="expenses_item-account">sbrf</span>
-        <span class="expenses_item-sum">10000</span>
-      </div>
-    </li>
+    <% @expenses.each do |exp| %>
+      <li class="expenses_item">
+        <div class="expenses_item-date"><%= exp.transaction_date %></div>
+        <div class="expenses_item-body">
+          <span class="expenses_item-account"><%= exp.account.name %></span>
+          <span class="expenses_item-sum"><%= exp.amount %></span>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </div>
