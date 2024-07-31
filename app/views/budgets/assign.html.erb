@@ -1,13 +1,17 @@
-<h3>Assign money</h3>
-<p>to</p>
-<p><b><%= @budget.name %>:</b><%= @budget.allocated_sum %></p>
 
-<div class="assign_form">
-  <%= form_with model: @budget, class: "assign_form" do |form|%>
-    <%=  form.number_field :sum, class: "form-field" %>
-    <div class="assign_form-buttons">
-      <%= link_to 'cancel', budgets_path %>
-      <%= form.submit 'assign' %>
+<div class="operation_form">
+  <h3 class="operation_form-title">
+    Assign to 
+    <b class="operation_form-budget_name">
+      <%= @budget.name %>
+    </b>
+  </h3>
+  <%= form_with model: @budget do |form|%>
+    <%=  form.number_field :sum, class: "operation_form-field" %>
+    <p>(available to spend:<%= @budget.allocated_sum %>)</p>
+    <div class="operation_form-actions">
+      <%= link_to 'cancel', budgets_path, class: 'operation_form-button' %>
+      <%= form.submit 'assign', class: 'operation_form-button' %>
     </div>
   <% end %>
 </div>
