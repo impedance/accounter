@@ -1,6 +1,8 @@
 
 <div class="assigning-info">
-  <b>Ready to assign:</b><%= @available_amount %>
+  <b>
+    <%= link_to 'Ready to assign', accounts_path %> 
+  </b><%= @available_amount %>
 </div>
 
 <div class="budgets_list">

@@ -1,0 +1,8 @@
+<div class="accounts">
+  <% accounts.each do |account| %>
+    <div class="accounts_item">
+      <p><%= link_to account.name, account_path(account) %></p>
+      <p><%= account.balance %></p>
+    </div>
+    <% end %>
+</div>

@@ -18,20 +18,14 @@
   </div>
 
   <ul class="allocations">
-    
-    <li class="allocations_item">
-      <div class="allocations_item-date">20/03/1986</div>
-      <div class="allocations_item-body">
-        <span class="allocations_item-account">sbrf</span>
-        <span class="allocations_item-sum">10000</span>
-      </div>
-    </li>
-    <li class="allocations_item">
-      <div class="allocations_item-date">20/03/1986</div>
-      <div class="allocations_item-body">
-        <span class="allocations_item-account">sbrf</span>
-        <span class="allocations_item-sum">10000</span>
-      </div>
-    </li>
+    <% @allocations.each do |alloc| %>
+      <li class="allocations_item">
+        <div class="allocations_item-date"><%= alloc.transaction_date %></div>
+        <div class="allocations_item-body">
+          <span class="allocations_item-account"><%= alloc.account.name %></span>
+          <span class="allocations_item-sum"><%= alloc.amount %></span>
+        </div>
+      </li>
+    <% end %>
   </ul>
 </div>
